@@ -1,0 +1,11 @@
+default: &default
+  scrapping:
+    base_url: "https://www.musicfestivalwizard.com/festivals/"
+  spotify:
+    app_id: "samhecquet"
+production:
+  <<: *default
+test:
+  <<: *default
+development:
+  <<: *default
