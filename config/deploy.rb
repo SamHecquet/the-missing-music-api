@@ -6,6 +6,7 @@ server '159.203.32.234', port: 22, roles: [:web, :app, :db], primary: true
 set :repo_url,        'git@github.com:SamHecquet/the-missing-music-api.git'
 set :application,     'the-missing-music-api'
 set :user,            'deploy'
+set :deploy_user,     'deploy'
 set :puma_threads,    [4, 16]
 set :puma_workers,    0
 
