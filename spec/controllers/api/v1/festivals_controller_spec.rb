@@ -22,10 +22,10 @@ RSpec.describe Api::V1::FestivalsController, :type => :controller do
         expect(toto.count).to eq(5)
         expect(toto).to contain_exactly(
           'the-toto',
-          'toto-' + Date.today.strftime("%Y"),
+          "toto-#{Date.today.strftime("%Y")}",
           'toto',
-          'the-toto-festival-' + Date.today.strftime("%Y"),
-          'toto-festival-' + Date.today.strftime("%Y")
+          "the-toto-festival-#{Date.today.strftime("%Y")}",
+          "toto-festival-#{Date.today.strftime("%Y")}"
         )
       end
     end
@@ -37,9 +37,9 @@ RSpec.describe Api::V1::FestivalsController, :type => :controller do
         expect(toto).to contain_exactly(
           'the-toto-tata',
           'toto-tata',
-          'toto-tata-' + Date.today.strftime("%Y"),
-          'the-toto-tata-festival-' + Date.today.strftime("%Y"),
-          'toto-tata-festival-' + Date.today.strftime("%Y"),
+          "toto-tata-#{Date.today.strftime("%Y")}",
+          "the-toto-tata-festival-#{Date.today.strftime("%Y")}",
+          "toto-tata-festival-#{Date.today.strftime("%Y")}",
         )
       end
     end
@@ -51,9 +51,9 @@ RSpec.describe Api::V1::FestivalsController, :type => :controller do
         expect(toto).to contain_exactly(
           'the-tot-os-t-ta',
           'tot-os-t-ta',
-          'tot-os-t-ta-' + Date.today.strftime("%Y"),
-          'the-tot-os-t-ta-festival-' + Date.today.strftime("%Y"),
-          'tot-os-t-ta-festival-' + Date.today.strftime("%Y"),
+          "tot-os-t-ta-#{Date.today.strftime("%Y")}",
+          "the-tot-os-t-ta-festival-#{Date.today.strftime("%Y")}",
+          "tot-os-t-ta-festival-#{Date.today.strftime("%Y")}",
         )
       end
     end

@@ -4,4 +4,8 @@ class Artist < ApplicationRecord
 
   validates :name, presence: true
   validates :slug, presence: true
+  
+  def to_s
+    "#{@name}"
+  end
 end

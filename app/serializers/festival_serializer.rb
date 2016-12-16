@@ -5,8 +5,6 @@ class FestivalSerializer < ActiveModel::Serializer
   
   #  Format : https://api.spotify.com/v1/users/{user_id}/playlists/{playlist_id}
   def playlist_url
-    if object.spotify_user_id and object.spotify_playlist_id
-      return "https://api.spotify.com/v1/users/#{object.spotify_user_id}/playlists/#{object.spotify_playlist_id}"
-    end
+    "https://api.spotify.com/v1/users/#{object.spotify_user_id}/playlists/#{object.spotify_playlist_id}" if object.spotify_user_id && object.spotify_playlist_id
   end
 end
