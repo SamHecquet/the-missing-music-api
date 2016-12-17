@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :artist do
-    name "MyString"
+    name 'MyString'
     headliner false
   end
 end

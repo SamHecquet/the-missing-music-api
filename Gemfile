@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 ruby '2.3.0'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 # Use Puma as the app server
@@ -24,15 +23,19 @@ gem 'active_model_serializers', '~> 0.10.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-# Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
+# Use Rack CORS for handling Cross-Origin Resource Sharing (CORS)
 gem 'rack-cors'
 
-# Rack::Attack is a rack middleware to protect your web app from bad clients. It allows safelisting, blocklisting, throttling, and tracking based on arbitrary properties of the request.
+# Rack::Attack is a rack middleware to protect your web app from bad clients.
+# It allows safelisting, blocklisting, throttling,
+# and tracking based on arbitrary properties of the request.
 gem 'rack-attack'
 
+gem 'rubocop', '~> 0.46.0', require: false
+
 group :development, :test do
-  gem 'sqlite3'
   gem 'pry'
+  gem 'sqlite3'
   # Use RSpec for specs
   gem 'rspec-rails', '>= 3.5.0'
 
@@ -40,16 +43,16 @@ group :development, :test do
   gem 'factory_girl_rails'
 end
 
-
 group :development do
   gem 'listen', '~> 3.0.5'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  # Spring speeds up development by keeping your application running
+  # in the background. # Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
 group :production do
-  gem 'pg' 
+  gem 'pg'
   gem 'rails_12factor'
   gem 'unicorn'
 end

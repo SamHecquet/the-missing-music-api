@@ -43,5 +43,4 @@ ActiveRecord::Schema.define(version: 20161121192506) do
     t.index ["artist_id"], name: "index_festivals_artists_on_artist_id"
     t.index ["festival_id"], name: "index_festivals_artists_on_festival_id"
   end
-
 end
