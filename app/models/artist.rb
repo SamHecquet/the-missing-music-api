@@ -8,4 +8,20 @@ class Artist < ApplicationRecord
   def to_s
     @name
   end
+
+  def self.find_one_by_name(artist_name, slug)
+    where(
+      [
+        'lower(name) = ? OR lower(slug) = ?',
+        artist_name,
+        slug
+      ]
+    ).first
+  end
+
+  def self.create_if_not_found(artist_name, slug)
+    new_artist = find_one_by_name(artist_name, slug)
+    new_artist = new(name: artist_name, slug: slug) unless new_artist
+    new_artist
+  end
 end

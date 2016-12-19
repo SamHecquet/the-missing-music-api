@@ -34,8 +34,6 @@ module Api::V1
         year = Date.today.strftime('%Y').to_i
       )
 
-      puts "after: #{list_festival_name_rewrited}"
-
       # 2 - Search in database
       search_festival_database(list_festival_name_rewrited, year)
 
@@ -113,14 +111,11 @@ module Api::V1
     def search_festival_database(list_festival_name, year)
       # try to find festival's in database for each name
       list_festival_name.each do |festival_name|
-        festival = Festival.where(
-          [
-            '(lower(name) = ? OR lower(slug) = ?) AND year =?',
-            festival_name.tr('-', ' ').downcase,
-            festival_name.tr('-', ' ').downcase,
-            year
-          ]
-        ).first
+        festival = Festival.find_one_by_name_and_year(
+          festival_name.tr('-', ' '),
+          festival_name,
+          year
+        )
         if festival
           @festival = festival
           break
@@ -143,7 +138,6 @@ module Api::V1
         next unless /20\d/ =~ resp.code
         # then we scrap
         page = Nokogiri::HTML(open(url))
-
         # create Festival if necessary
         if @festival.instance_of?(Festival) && @festival.valid?
           festival = @festival
@@ -158,52 +152,26 @@ module Api::V1
           )
           festival = Festival.create(params.require(:festival).permit!)
         end
-
-        artists = []
+        
         # headliners
-        headliner_list = page.css('.placeholder2 .f_headliner .f_artist')
-
-        # lineup
-        artist_list = page.css('.lineupguide ul li')
-
-        headliner_list.each do |name|
+        page.css('.placeholder2 .f_headliner .f_artist').each do |name|
           artist_name = name.text
-                            .downcase.gsub(/\A\p{Space}*|\p{Space}*\z/, '')
-          new_artist = Artist.where(
-            [
-              'lower(name) = ? OR lower(slug) = ?',
-              artist_name,
-              artist_name
-            ]
-          ).first
-          unless new_artist
-            new_artist = Artist.new(name: name.text, slug: artist_name)
-          end
-          next unless new_artist.valid?
-          festival.festivals_artists.create(
-            artist: new_artist,
-            headliner: true
-          )
-          artists << new_artist
-        end
-
-        artist_list.each do |name|
-          artist_name = name.text.strip
+          slug = artist_name.strip
                             .downcase.gsub(/\A\p{Space}*|\p{Space}*\z/, '')
           # Search Artist in database before creating it
-          new_artist = Artist.where(
-            [
-              'lower(name) = ? OR lower(slug) = ?',
-              artist_name,
-              artist_name
-            ]
-          ).first
-          unless new_artist
-            new_artist = Artist.new(name: name.text, slug: artist_name)
-          end
+          new_artist = Artist.create_if_not_found(artist_name, slug)
+          next if !new_artist.valid? || festival.artists.include?(new_artist)
+          festival.festivals_artists.create_headliner(new_artist)
+        end
 
-          # check if no duplicate value
-          next if artists.find { |artist| artist.name == name.text || artist.slug == artist_name } || !new_artist.valid?
+        # lineup
+        page.css('.lineupguide ul li').each do |name|
+          artist_name = name.text
+          slug = artist_name.strip
+                            .downcase.gsub(/\A\p{Space}*|\p{Space}*\z/, '')
+          # Search Artist in database before creating it
+          new_artist = Artist.create_if_not_found(artist_name, slug)
+          next if !new_artist.valid? || festival.artists.include?(new_artist)
           festival.artists << new_artist
         end
 
