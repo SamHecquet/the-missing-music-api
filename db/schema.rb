@@ -10,19 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161121192506) do
+ActiveRecord::Schema.define(version: 20161219163709) do
 
   create_table "artists", force: :cascade do |t|
-    t.string   "name"
-    t.string   "slug"
+    t.string   "name",       null: false
+    t.string   "slug",       null: false
     t.string   "spotify_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "festivals", force: :cascade do |t|
-    t.string   "name"
-    t.string   "slug"
+    t.string   "name",                null: false
+    t.string   "slug",                null: false
     t.string   "url"
     t.integer  "year"
     t.string   "location"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20161121192506) do
     t.string   "spotify_user_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+    t.index ["name", "year"], name: "index_festivals_on_name_and_year", unique: true
   end
 
   create_table "festivals_artists", force: :cascade do |t|
@@ -41,6 +42,8 @@ ActiveRecord::Schema.define(version: 20161121192506) do
     t.integer "artist_id"
     t.boolean "headliner",   default: false
     t.index ["artist_id"], name: "index_festivals_artists_on_artist_id"
+    t.index ["festival_id", "artist_id"], name: "index_festivals_artists_on_festival_id_and_artist_id", unique: true
     t.index ["festival_id"], name: "index_festivals_artists_on_festival_id"
   end
+
 end

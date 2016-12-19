@@ -41,7 +41,7 @@ module Api::V1
 
       # 3 - Search by scrapping if Festival not found
       #     or it still doesn't have any artists
-      search_festival_scrapping(list_festival_name_rewrited, year) unless need_scrapping?
+      search_festival_scrapping(list_festival_name_rewrited, year) if need_scrapping?
     end
 
     # Rewrite the name of the festival provided
@@ -137,7 +137,7 @@ module Api::V1
       # try to find festival's data for each name
       list_festival_name.each do |festival_name|
         url = "#{Rails.configuration.behaviour['scrapping']['base_url']}#{festival_name}/"
-       
+
         # First we ping the URL to see if it exists
         resp = Net::HTTP.get_response(URI.parse(url))
         next unless /20\d/ =~ resp.code
@@ -203,7 +203,7 @@ module Api::V1
           end
 
           # check if no duplicate value
-          next unless artists.find { |artist| artist.name == name.text || artist.slug == artist_name } && new_artist.valid?
+          next if artists.find { |artist| artist.name == name.text || artist.slug == artist_name } || !new_artist.valid?
           festival.artists << new_artist
         end
 
@@ -219,6 +219,8 @@ module Api::V1
       puts 'log_result'
     end
 
+    # Determine if the festival need to be searched or updated
+    # @return [Boolean]
     def need_scrapping?
       !@festival.instance_of?(Festival) || !@festival.valid? || @festival.should_be_updated?
     end

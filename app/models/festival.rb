@@ -1,5 +1,5 @@
 class Festival < ApplicationRecord
-  has_many :festivals_artists
+  has_many :festivals_artists, dependent: :destroy
   has_many :artists, through: :festivals_artists
 
   validates :name, presence: true
