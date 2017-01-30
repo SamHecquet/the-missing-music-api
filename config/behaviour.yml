@@ -1,6 +1,7 @@
 default: &default
   scrapping:
     base_url: "https://www.musicfestivalwizard.com/festivals/"
+    additional_words: ["festival", "music festival"]
   spotify:
     app_id: "samhecquet"
 production:

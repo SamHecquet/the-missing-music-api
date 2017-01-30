@@ -48,10 +48,10 @@ module Api::V1
     # @param year [Integer]
     # @return [Array] List of rewrited names
     # * festival_name + year
-    # * festival_name + festival + year
+    # * festival_name + additional_word(s) + year
     # * festival_name
-    # * the + festival_name + year
-    # * the + festival_name + festival + year
+    # * "the" + festival_name + year
+    # * "the" + festival_name + additional_word(s) + year
     def to_slug(festival_name, year)
       list_festival_name = []
 
@@ -70,8 +70,11 @@ module Api::V1
       # remove word "the" if starting by it
       rewrited_name.gsub!(/^the/, '-')
 
-      # remove word "festival", we'll add it manually after
-      rewrited_name.sub!('festival', '')
+      # remove frequently used words like "festival", we'll add them manually after
+      add_words = Rails.configuration.behaviour['scrapping']['additional_words']
+      add_words.each do |word|
+        rewrited_name.sub!(word, '')
+      end
 
       # remove current year, last one and next
       rewrited_name.sub!(year.to_s, '')
@@ -88,17 +91,22 @@ module Api::V1
       # * festival_name + 2017
       list_festival_name << "#{rewrited_name}-#{year}"
 
-      # * festival_name + festival + 2017
-      list_festival_name << "#{rewrited_name}-festival-#{year}"
-
+      # Manually add frequently used words like "festival"
+      add_words.each do |word|
+        # * festival_name + "word" + 2017
+        list_festival_name << "#{rewrited_name}-#{word.tr(' ', '-')}-#{year}"
+      end
       # * festival_name
       list_festival_name << rewrited_name
 
-      # * the + festival_name + 2017
+      # * "the" + festival_name + 2017
       list_festival_name << "the-#{rewrited_name}"
 
-      # * the festival_name + festival + 2017
-      list_festival_name << "the-#{rewrited_name}-festival-#{year}"
+      # Manually add frequently used words like "festival"
+      add_words.each do |word|
+        # * "the" + festival_name + word + 2017
+        list_festival_name << "the-#{rewrited_name}-#{word.tr(' ', '-')}-#{year}"
+      end
 
       list_festival_name
     end
@@ -152,7 +160,7 @@ module Api::V1
           )
           festival = Festival.create(params.require(:festival).permit!)
         end
-        
+
         # headliners
         page.css('.placeholder2 .f_headliner .f_artist').each do |name|
           artist_name = name.text
