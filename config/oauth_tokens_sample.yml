@@ -1,0 +1,15 @@
+default: &default
+  spotify:
+    client_id: '<your_client_id>'
+    client_secret: '<your_client_secret>'
+    oauth_tokens:
+      id: '<your_user_id>'
+      credentials: 
+        token: '<your_oauth_token>'
+        refresh_token: '<your_oauth_refresh_token>'
+production:
+  <<: *default
+test:
+  <<: *default
+development:
+  <<: *default

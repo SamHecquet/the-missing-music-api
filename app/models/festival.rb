@@ -18,6 +18,12 @@ class Festival < ApplicationRecord
     artists.empty? || updated_at < 14.hours.ago
   end
 
+  # Check the festival has data to retrieve its playlist
+  # @return [Boolean]
+  def playlist?
+    spotify_user_id.present? && spotify_playlist_id.present?
+  end
+
   def self.find_one_by_name_and_year(festival_name, festival_slug, year)
     where(
       [
@@ -27,5 +33,19 @@ class Festival < ApplicationRecord
         year
       ]
     ).first
+  end
+
+  def self.find_one_by_slug(festival_slug)
+    where(slug: festival_slug).take
+  end
+
+  # Remove playlist's ids
+  def remove_playlist
+    update(spotify_user_id: nil, spotify_playlist_id: nil)
+  end
+
+  #  Format : https://embed.spotify.com/?uri=spotify:user:{user}:playlist:{playlist}
+  def playlist_embed_url
+    "https://embed.spotify.com/?uri=spotify:user:#{spotify_user_id}:playlists:#{spotify_playlist_id}" if playlist?
   end
 end

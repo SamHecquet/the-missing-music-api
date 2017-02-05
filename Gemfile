@@ -33,6 +33,8 @@ gem 'rack-attack'
 
 gem 'rubocop', '~> 0.46.0', require: false
 
+gem 'rspotify', '>= 1.19.0'
+
 group :development, :test do
   gem 'pry'
   gem 'sqlite3'

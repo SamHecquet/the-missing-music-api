@@ -4,7 +4,7 @@ class FestivalsArtist < ApplicationRecord
 
   scope :headliner_first, -> { order(headliner: :desc) }
   # default_scope -> { order(headliner: :desc) }
-  
+
   def self.create_headliner(new_artist)
     create(
       artist: new_artist,
