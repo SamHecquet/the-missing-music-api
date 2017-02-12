@@ -1,6 +1,7 @@
 FactoryGirl.define do
   factory :artist do
     name 'MyString'
-    headliner false
+    slug 'my-string'
+    spotify_id nil
   end
 end

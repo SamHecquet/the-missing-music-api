@@ -1,5 +1,5 @@
 class FestivalsArtistSerializer < ActiveModel::Serializer
-  attributes :name, :slug, :headliner, :spotify_id
+  attributes :name, :slug, :spotify_id
 
   def name
     object.artist.name

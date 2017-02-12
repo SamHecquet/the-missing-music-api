@@ -1,0 +1,599 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.spotify.com/v1/users/samhecquet/playlists
+    body:
+      encoding: UTF-8
+      string: '{"name":"Rock Werchter 2017","public":true}'
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Bearer BQDjHFQy6oeV80BVGr5J7FbCFE13AJzTI4JJomfRIC44KtwHC2p6GDI1ltgjqpyRCJnxIJyY1i_Oyrywrlah6PMKrbxwdLowusp-d0kbzyB5VW8AHcqHrijxeWtn59phz0iHdABSYvhi3Z7rShXljdsSEXdFWfh_FsLXWK16bBy2R0QTamWMpDOyV05zIZn4C1M4VYNbVuH88sc
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '43'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 12 Feb 2017 23:24:28 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=600
+      Www-Authenticate:
+      - Bearer realm="spotify", error="invalid_token", error_description="The access
+        token expired"
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS, PUT, DELETE
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Max-Age:
+      - '604800'
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Origin, Content-Type
+      Content-Encoding:
+      - gzip
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAAKrmUlBQSi0qyi9SslKoBnKA3OKSxJLSYiDfxMBQByKUm1pc
+        nJieChRTCslIVUhMTgYKKJTkZ6fmKaRWFGQWpaYoAVXWctUCAAAA//8DAFAZ
+        BolRAAAA
+    http_version: 
+  recorded_at: Sun, 12 Feb 2017 23:24:28 GMT
+- request:
+    method: post
+    uri: https://accounts.spotify.com/api/token
+    body:
+      encoding: UTF-8
+      string: grant_type=client_credentials
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Basic MDFlOTYyMGFlMDFkNGQyOWIxYjA3YmI1MTU4ZTExNjU6NGRjYzlmNGQ1NjJlNGRiMGE5MDJmM2MwMWJlYWZiNTM=
+      Content-Length:
+      - '29'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 12 Feb 2017 23:24:28 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=600
+      Vary:
+      - Accept-Encoding
+      X-Ua-Compatible:
+      - IE=edge
+      X-Frame-Options:
+      - deny
+      Content-Security-Policy:
+      - 'default-src ''self''; script-src ''self'' https://d2d1dxiu3v1f2i.cloudfront.net
+        https://www.google-analytics.com; img-src ''self'' https://d2d1dxiu3v1f2i.cloudfront.net
+        https://i.imgur.com https://d2mv8tnci56s9d.cloudfront.net https://aci.scdn.co
+        https://graph.facebook.com https://fbcdn-profile-a.akamaihd.net https://scontent.xx.fbcdn.net
+        https://www.google-analytics.com https://stats.g.doubleclick.net data: d2d1dxiu3v1f2i.cloudfront.net;
+        font-src ''self'' https://d2d1dxiu3v1f2i.cloudfront.net https://sp-bootstrap.global.ssl.fastly.net;
+        style-src ''self'' ''unsafe-inline'' https://d2d1dxiu3v1f2i.cloudfront.net;
+        frame-src ''self'' https://www.spotify.com https://app.adjust.com https://itunes.apple.com
+        itms-apps:;'
+      X-Content-Security-Policy:
+      - 'default-src ''self''; script-src ''self'' https://d2d1dxiu3v1f2i.cloudfront.net
+        https://www.google-analytics.com; img-src ''self'' https://d2d1dxiu3v1f2i.cloudfront.net
+        https://i.imgur.com https://d2mv8tnci56s9d.cloudfront.net https://aci.scdn.co
+        https://graph.facebook.com https://fbcdn-profile-a.akamaihd.net https://scontent.xx.fbcdn.net
+        https://www.google-analytics.com https://stats.g.doubleclick.net data: d2d1dxiu3v1f2i.cloudfront.net;
+        font-src ''self'' https://d2d1dxiu3v1f2i.cloudfront.net https://sp-bootstrap.global.ssl.fastly.net;
+        style-src ''self'' ''unsafe-inline'' https://d2d1dxiu3v1f2i.cloudfront.net;
+        frame-src ''self'' https://www.spotify.com https://app.adjust.com https://itunes.apple.com
+        itms-apps:;'
+      Cache-Control:
+      - no-cache, no-store, must-revalidate
+      Pragma:
+      - no-cache
+      Content-Encoding:
+      - gzip
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAAx3NwQqCMBgA4HfZOWFhONbNmIhimrKyvIiNP9HCzE10i949
+        6/pdvjeqhAApS/W8Q4e2aJe6zNAbZ0H3ILHyrLQ1MgpfqqaMzfvzwUw+yYsx
+        LqJYZrWdEBxInmgaTfiUUdGuIZ+ta3L0LnrTC25SZwxdtEL/oFS6h98C1QDD
+        ojD3zQCybJbbdjD+fAFAwaW5kQAAAA==
+    http_version: 
+  recorded_at: Sun, 12 Feb 2017 23:24:28 GMT
+- request:
+    method: post
+    uri: https://api.spotify.com/v1/users/samhecquet/playlists
+    body:
+      encoding: UTF-8
+      string: '{"name":"Rock Werchter 2017","public":true}'
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Bearer BQDjHFQy6oeV80BVGr5J7FbCFE13AJzTI4JJomfRIC44KtwHC2p6GDI1ltgjqpyRCJnxIJyY1i_Oyrywrlah6PMKrbxwdLowusp-d0kbzyB5VW8AHcqHrijxeWtn59phz0iHdABSYvhi3Z7rShXljdsSEXdFWfh_FsLXWK16bBy2R0QTamWMpDOyV05zIZn4C1M4VYNbVuH88sc
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '43'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 12 Feb 2017 23:24:28 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=600
+      Www-Authenticate:
+      - Bearer realm="spotify", error="invalid_token", error_description="The access
+        token expired"
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS, PUT, DELETE
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Max-Age:
+      - '604800'
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Origin, Content-Type
+      Content-Encoding:
+      - gzip
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAAKrmUlBQSi0qyi9SslKoBnKA3OKSxJLSYiDfxMBQByKUm1pc
+        nJieChRTCslIVUhMTgYKKJTkZ6fmKaRWFGQWpaYoAVXWctUCAAAA//8DAFAZ
+        BolRAAAA
+    http_version: 
+  recorded_at: Sun, 12 Feb 2017 23:24:28 GMT
+- request:
+    method: post
+    uri: https://accounts.spotify.com/api/token
+    body:
+      encoding: UTF-8
+      string: grant_type=refresh_token&refresh_token=AQDQNRnSdjHmZMKeqg1N20f3MTvDKgxCo0DPV5RErG9uzfeCfosMuKwwgghfbxIYYr8C0AHZEdOPMeLwHTu3dUvHhNZp6pIcaoVcvP9DrtgdG-phBWEH55VqM8l9coqce_4
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Basic MDFlOTYyMGFlMDFkNGQyOWIxYjA3YmI1MTU4ZTExNjU6NGRjYzlmNGQ1NjJlNGRiMGE5MDJmM2MwMWJlYWZiNTM=
+      Content-Length:
+      - '170'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 12 Feb 2017 23:24:28 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=600
+      Vary:
+      - Accept-Encoding
+      X-Ua-Compatible:
+      - IE=edge
+      X-Frame-Options:
+      - deny
+      Content-Security-Policy:
+      - 'default-src ''self''; script-src ''self'' https://d2d1dxiu3v1f2i.cloudfront.net
+        https://www.google-analytics.com; img-src ''self'' https://d2d1dxiu3v1f2i.cloudfront.net
+        https://i.imgur.com https://d2mv8tnci56s9d.cloudfront.net https://aci.scdn.co
+        https://graph.facebook.com https://fbcdn-profile-a.akamaihd.net https://scontent.xx.fbcdn.net
+        https://www.google-analytics.com https://stats.g.doubleclick.net data: d2d1dxiu3v1f2i.cloudfront.net;
+        font-src ''self'' https://d2d1dxiu3v1f2i.cloudfront.net https://sp-bootstrap.global.ssl.fastly.net;
+        style-src ''self'' ''unsafe-inline'' https://d2d1dxiu3v1f2i.cloudfront.net;
+        frame-src ''self'' https://www.spotify.com https://app.adjust.com https://itunes.apple.com
+        itms-apps:;'
+      X-Content-Security-Policy:
+      - 'default-src ''self''; script-src ''self'' https://d2d1dxiu3v1f2i.cloudfront.net
+        https://www.google-analytics.com; img-src ''self'' https://d2d1dxiu3v1f2i.cloudfront.net
+        https://i.imgur.com https://d2mv8tnci56s9d.cloudfront.net https://aci.scdn.co
+        https://graph.facebook.com https://fbcdn-profile-a.akamaihd.net https://scontent.xx.fbcdn.net
+        https://www.google-analytics.com https://stats.g.doubleclick.net data: d2d1dxiu3v1f2i.cloudfront.net;
+        font-src ''self'' https://d2d1dxiu3v1f2i.cloudfront.net https://sp-bootstrap.global.ssl.fastly.net;
+        style-src ''self'' ''unsafe-inline'' https://d2d1dxiu3v1f2i.cloudfront.net;
+        frame-src ''self'' https://www.spotify.com https://app.adjust.com https://itunes.apple.com
+        itms-apps:;'
+      Cache-Control:
+      - no-cache, no-store, must-revalidate
+      Pragma:
+      - no-cache
+      Content-Encoding:
+      - gzip
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA1WPy3KCMABFf6XD2syAPITucMpDa7RWfIybTMQo4ZWQgBo6
+        /feq7abLe+bcxfnScJoSKVHLClJrr9p46a93YG1NEjGTxyHMi6Y2J3tY20GH
+        rc3Fk17crlbSh9Crqt7VTVzsk7c9Y3brZxc+9Fy5IKFuQ4NaSWIq55pG8cbL
+        nZ7FaXbtY6ugZh22s+iw2GRd/k4NR063eW/Ohe8F56AZVfgkbmJqba/WfI2M
+        ua9qUPbOElissdvkjPxm+nHORisZfnIYRS50w6Gjxu6Y1B1EdrVDxokF9o1L
+        baA9y1CrOHnkESyIuFNy41QQieg92nR0faDJlD2VThIBSnoQWCggCD6+/CMV
+        O9KTeuElViWV7d8GvDuUNP1VHydAKkxL7fsHrUw62mEBAAA=
+    http_version: 
+  recorded_at: Sun, 12 Feb 2017 23:24:28 GMT
+- request:
+    method: post
+    uri: https://api.spotify.com/v1/users/samhecquet/playlists
+    body:
+      encoding: UTF-8
+      string: '{"name":"Rock Werchter 2017","public":true}'
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Bearer BQAUX-U4ITrLsd2Mjkqn3IZMn5Eua4Vv9s9HtSSsAMM9mmz803akZTDZoo5tAhvp298sOeF05M1i4TT3y6wcGHV9j6zoHchwzH4ki3nFtLGbOVhujKi16sJWjz3NrA9EgEq7mafrxrJ4Ww4NU_1NAyn-lz6Q-4oq5tTg_AqJPgh7SsFRpMGG8M8F26yB8BenuM_5mX_1foE5xps
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '43'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 12 Feb 2017 23:24:28 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=600
+      Cache-Control:
+      - private, max-age=0
+      Location:
+      - https://api.spotify.com/v1/users/samhecquet/playlists/5ju2eLbnG4lrgm2nPFptWq
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS, PUT, DELETE
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Max-Age:
+      - '604800'
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Origin, Content-Type
+      Content-Encoding:
+      - gzip
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAAKyTXU/bMBSG7/crolwjknYbnXIHlO2CwgZjKxJCyHFPiIlj
+        u/ZxIKD+99lOglpGhzbt9jlfr99z/PQuimIqOSe51ARZA3GURQXhBnZ8aAGG
+        aqaQSeEDwnIeODwgaEH4jdXc+MiTo44bJZEVrSdxiaiyJJEKxG7Pd6msE2tA
+        J4bUJdClBUwUJy1nBpOPd3YMs1x8+cD1bT0W3z4rnC9j13kVhhZOp7wHvT6w
+        1FCsK3MIJRLuWfpcOWQFTcaJIoptaGpGQZZ5TZfZJiy0ZovQ+I8pNbmFIPoq
+        ug5EkDoYHZ9LWkVz0LR0fkbjdDTpSuS9AL32zC1+/5vjcahd7Ww6+DfexH1t
+        //jfA9iq7oG+coBWsy69a575WLYpq1uXsjln1Oeitt0hGkGUKSXe9CO/L+7y
+        H7leVsdiStKfWh+PmoMzbPYmVXM4RTpt9tVkcfTVXHya0Iuj9v08mZ224nL2
+        eFidPD7sdTajJrR67Zz+66Ek/ZjBNIR6/Roc4qxm6NEoTXsk3MpfHLYsCgMB
+        DklKQ8OkNW//gOeFDGI7A95YSTZkZ9v+5uoXAAAA//8DAAH1W0hCBAAA
+    http_version: 
+  recorded_at: Sun, 12 Feb 2017 23:24:28 GMT
+- request:
+    method: get
+    uri: https://api.spotify.com/v1/search?limit=20&offset=0&q=Radiohead&type=artist
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Bearer BQADz9fTDInl7NtE-QjzsLJqtg9DDxMXPzwG7WZuNZLNsRg3O70IsTOy9Lw0VR9cj1eWx-bOUEYy4pcTzQ6uJA
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 12 Feb 2017 23:24:29 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=600
+      Cache-Control:
+      - public, max-age=7200
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS, PUT, DELETE
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Max-Age:
+      - '604800'
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Origin, Content-Type
+      Content-Encoding:
+      - gzip
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAAKyVW0/bMBSA3/kVUR54QjRxfEulagLtAQlpG2hiGtM0ndjH
+        rUWaZInLRYj/PidNb6xQinj0iX3OZx9/zuNBEIRQO9u4JgyGwaMf+8ikRtMO
+        w4lzVTMcDKCyx01VOmsejlU5HdzGgwahVpNPf2dYP4wuQdtygqAP3UOFo3nG
+        w9KYBt0oOszt1LoRicKjeX7rcNrV+9VX9DG8d1gXkP+Z1fkaS/etL72BVFZY
+        bDDNiw7otfxBzTmesp/32ay5bPTF1bcs7JM9HS3qmTLPyzusn9da7L2Y5fnR
+        KuxKB3kbj1OWShn9l2+MRY39pkLIu804e4tBXaqb8MhvutB2NZpiDoWalLmF
+        dlhhPYUCCxfcwS22kW5i8HuZ/y096Tv50hksc1ndZdo5bQpjfNanlgTteOLa
+        MKfR2hH5xm0AejylC8826BINwCjNY44xGqKJkNxQkSUZBQkcEIFQEAS0Ctdy
+        3lntJn2p5ZFvh0nIPjCMJ4JRMHGUJTo1qeEEEsok8jQ1TCoKEZEiMlthfKkd
+        MDHfB4ZGXPj9E6ZlRokBnrJYMqETMERoHQnNI5MovhXGl1rArF2XAqbY1Vyq
+        ueprVVazHGrrOqPkkjRs5e0WzS/SasWstl28v2/D+ffha66tncyHuR2dfL45
+        PbueXBJ1ZU6+jM/Z+Ozi6we6zcirXr/Pxheon9u4c9pOGwnd485xTGXKhKGp
+        VwAFIlWCi5h7FRNglEWKsQx08k4bSZrsARNRKUWaUVQJITxNIgTlbeACuFAs
+        RRULnqLE7TZGu2A42YMlkyCjzJhYkSzh6N8mEgtClPBQIk6lf6FQcq5fOJg3
+        uRh8r202cxicQvGimMm7vXzNkyVY2P2Vu171L0BYeFE3/Qjn//A2uJhU1Xhr
+        y1nzbOJSolahp4OnfwAAAP//AwBQrlabWwgAAA==
+    http_version: 
+  recorded_at: Sun, 12 Feb 2017 23:24:29 GMT
+- request:
+    method: get
+    uri: https://api.spotify.com/v1/artists/4Z8W4fKeB5YxbusRsdQVPb/top-tracks?country=US
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Bearer BQADz9fTDInl7NtE-QjzsLJqtg9DDxMXPzwG7WZuNZLNsRg3O70IsTOy9Lw0VR9cj1eWx-bOUEYy4pcTzQ6uJA
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 12 Feb 2017 23:24:29 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=600
+      Cache-Control:
+      - public, max-age=7200
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS, PUT, DELETE
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Max-Age:
+      - '604800'
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Origin, Content-Type
+      Content-Encoding:
+      - gzip
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAAOycWVMjORKA3+dXOHjuHXQfRGxsAOa+3JijYWOD0Imr8bVl
+        u8E90f99ZYEN7nEZ2xh6J0YvCUjprCxJmflZqOqP30qllW6uzF1npbRW+nfp
+        j9AQmlRd9xqDlse/hy033X7bDZqfFD6NevNu1umO2Yjt7qHr8qaq3/Tyeuel
+        vdjbabe6me9Hg7Vut91ZW11ttV3z96eO302rsfpoepVci0viD9wGvXrQvc5p
+        x36+qOiVkbkfn56vWsudHzOq2tmYzW/wyWynyO4La5mNtl5XbKrG4+CcKpu1
+        ak7Zl73PQxev/LKrl2ex58nFtUeNtem3/KP0n+fh/6ayutJ1d9NQ+Z0bTsTK
+        ennlU5CnUZ5FeT6QG1tR7kR5EmXU2VyPcjfKwyhj7+Zj71WU1wNZjhbKB1FG
+        na3NKGP7VnUgt/eijJ/d2Yjy8ffoyW787O5xlNGrvejtXrSwFy3sRc39ykAe
+        RmuHseUw6h9eDORRvO5RbD/6EmX08zjqH8e7OI4eHkfPK/EeK/EqlXinlahT
+        iRYq8bPV2FuN41ONflbjtc6i/2eXA3kePTy/WnkxD1OW+4yLfRBWq4wAYJt9
+        V+6XUWNve9ff3e9+OR5N/OhyM63zgcVOkcmRqadF/qpaQ926P4d5zWW3te6g
+        ORgYW9j1Mf+Cd8Y2g2ur0dCqgxxAqJFSGCMhrVfMAIGEAo4AyzRlygqBwMtg
+        uc9st/Z0qdGITHYGg3mc8Q5CxYhwikGFDSIIGQQ19l4owYFizmvDgJjoTLjU
+        K84wMocvRAPiFaaAC4g41FB5RKwAxECtrDPQC8ew4QUDMyFFjJJTJeSJVmm3
+        1XT953ktyut/ykyD7rVp6/NpdU6uCEsIkFmqwZwRMlslmLEOTKsChTVgkQow
+        mtyU/f8fsv+KzTrmptlraJcPxh8Om3u56mat5k0jTgvCYpQiQzS065nJYnro
+        5j03an4KksyOxchK1slNXCY7G+tXWxIBADgYD7vCAJstvCIKrjKNWp/vqzvb
+        d987R93PeW/vsoHa4xeaJbIewbLI3JOhYeWZqjQKqs3cuVFru9Xu1VWedeNd
+        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
+        LZyKkAB++/E/AAAA//8DAIUFUNMOdQAA
+    http_version: 
+  recorded_at: Sun, 12 Feb 2017 23:24:29 GMT
+- request:
+    method: post
+    uri: https://api.spotify.com/v1/users/samhecquet/playlists/5ju2eLbnG4lrgm2nPFptWq/tracks?uris=spotify:track:6b2oQwSGFkzsMtQruIWm2p,spotify:track:3SVAN3BRByDmHOhKyIDxfC
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Bearer BQAUX-U4ITrLsd2Mjkqn3IZMn5Eua4Vv9s9HtSSsAMM9mmz803akZTDZoo5tAhvp298sOeF05M1i4TT3y6wcGHV9j6zoHchwzH4ki3nFtLGbOVhujKi16sJWjz3NrA9EgEq7mafrxrJ4Ww4NU_1NAyn-lz6Q-4oq5tTg_AqJPgh7SsFRpMGG8M8F26yB8BenuM_5mX_1foE5xps
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Content-Length:
+      - '0'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 12 Feb 2017 23:24:29 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=600
+      Cache-Control:
+      - private, max-age=0
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS, PUT, DELETE
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Max-Age:
+      - '604800'
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Origin, Content-Type
+      Content-Encoding:
+      - gzip
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAAKrmUlBQKs5LLCjOyC+Jz0xRUrBSUCoN1y9zztO2dHfNDMhM
+        TUoM8s3zdSk0S/cNTnd2NQvLcU4Oy9EvdXXLjgqoyvVzMdH3t3B0cjIozjaM
+        KjApNkpS4qoFAAAA//8DABseC7ZYAAAA
+    http_version: 
+  recorded_at: Sun, 12 Feb 2017 23:24:29 GMT
+recorded_with: VCR 3.0.3

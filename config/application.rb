@@ -17,12 +17,13 @@ require 'rails/test_unit/railtie'
 Bundler.require(*Rails.groups)
 
 module FestivalsApi
+  # Aplication
   class Application < Rails::Application
     # Settings in config/environments/* take precedence
     # over those specified here.
     # Application configuration should go into files in config/initializers
     config.behaviour = config_for(:behaviour)
-    
+
     config.oauth_tokens = config_for(:oauth_tokens)
     RSpotify.authenticate(
       config.oauth_tokens['spotify']['client_id'],
