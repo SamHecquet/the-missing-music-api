@@ -62,7 +62,7 @@ group :development do
 end
 
 group :production do
-  gem 'pg'
+  gem 'pg', '~> 0.19.0.pre20160409114042'
   gem 'rails_12factor'
   gem 'unicorn'
 end
