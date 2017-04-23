@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require_relative 'boot'
 
 require 'rails'
@@ -42,5 +43,6 @@ module FestivalsApi
     end
 
     config.middleware.use Rack::Attack
+    config.autoload_paths << "#{Rails.root}/lib"
   end
 end

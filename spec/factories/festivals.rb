@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 FactoryGirl.define do
   factory :festival_with_playlist, class: Festival do
     name 'festival with playlist'

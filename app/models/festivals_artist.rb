@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class FestivalsArtist < ApplicationRecord
   belongs_to :festival
   belongs_to :artist

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class FestivalSerializer < ActiveModel::Serializer
   attributes :name, :url, :slug, :year, :playlist_embed_url, :location,
              :date, :ticket, :camping, :website

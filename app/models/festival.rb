@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class Festival < ApplicationRecord
   has_many :festivals_artists, dependent: :destroy
   has_many :artists, through: :festivals_artists
@@ -42,6 +43,16 @@ class Festival < ApplicationRecord
   # Remove playlist's ids
   def remove_playlist
     update(spotify_user_id: nil, spotify_playlist_id: nil)
+  end
+
+  # Update Festival model to add playlist's ids
+  # @param playlist_id [String]
+  # @param spotify_user_id [String]
+  def add_playlist(playlist_id, spotify_user_id)
+    update(
+      spotify_user_id: spotify_user_id,
+      spotify_playlist_id: playlist_id
+    )
   end
 
   #  Format : https://embed.spotify.com/?uri=spotify:user:{user}:playlist:{playlist}

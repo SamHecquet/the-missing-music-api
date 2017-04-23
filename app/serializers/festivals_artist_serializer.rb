@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class FestivalsArtistSerializer < ActiveModel::Serializer
   attributes :name, :slug, :spotify_id
 

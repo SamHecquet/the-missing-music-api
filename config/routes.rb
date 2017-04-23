@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 Rails.application.routes.draw do
   # TODO : add subdomain
   # constraints subdomain: 'api' do
