@@ -36,9 +36,10 @@ gem 'rubocop', '~> 0.46.0', require: false
 
 gem 'rspotify', '>= 1.19.0'
 
+gem 'pg', '~> 0.19.0'
+
 group :development, :test do
   gem 'pry'
-  gem 'sqlite3'
   # Use RSpec for specs
   gem 'rspec-rails', '>= 3.5.0'
 
@@ -63,7 +64,6 @@ group :development do
 end
 
 group :production do
-  gem 'pg', '~> 0.19.0.pre20160409114042'
   gem 'rails_12factor'
   gem 'unicorn'
 end

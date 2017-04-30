@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   # constraints subdomain: 'api' do
   scope module: 'api' do
     namespace :v1 do
+      get '/festivals/search/:festival_name',
+          to: 'festivals#search',
+          constraints: { festival_name: /.*/ } # allow slash and dot
       get '/festivals/:festival_name',
           to: 'festivals#show',
           constraints: { festival_name: /.*/ } # allow slash and dot

@@ -16,6 +16,12 @@ module Api
         end
       end
 
+      # GET /festivals/autocomplete/:festival_name
+      def search
+        search = Festival.search_by_name(params[:festival_name])
+        render json: search, each_serializer: FestivalSearchSerializer
+      end
+
       private
 
       def set_festival
@@ -74,9 +80,12 @@ module Api
           if @festival.instance_of?(Festival) && @festival.valid?
             festival = @festival
           else
+            name = page.css('header.entry-header.wrapper h1 span').text
+            short_name = name.gsub(/ 20\d{2}$| festival/i, '')
             params = ActionController::Parameters.new(
               festival: {
-                name: page.css('header.entry-header.wrapper h1 span').text,
+                name: name,
+                short_name: short_name,
                 slug: festival_name,
                 url:  url,
                 year:  year
@@ -86,8 +95,8 @@ module Api
           end
 
           # headliners
-          page.css('.placeholder2 .f_headliner .f_artist').each do |name|
-            artist_name = name.text
+          page.css('.placeholder2 .f_headliner .f_artist').each do |artist|
+            artist_name = artist.text
             slug = artist_name.strip
                               .downcase.gsub(/\A\p{Space}*|\p{Space}*\z/, '')
             # Search Artist in database before creating it
@@ -97,8 +106,8 @@ module Api
           end
 
           # lineup
-          page.css('.lineupguide ul li').each do |name|
-            artist_name = name.text
+          page.css('.lineupguide ul li').each do |artist|
+            artist_name = artist.text
             slug = artist_name.strip
                               .downcase.gsub(/\A\p{Space}*|\p{Space}*\z/, '')
             # Search Artist in database before creating it
