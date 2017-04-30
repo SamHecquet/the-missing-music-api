@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161219163709) do
+ActiveRecord::Schema.define(version: 20170430181652) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+  enable_extension "pg_trgm"
 
   create_table "artists", force: :cascade do |t|
     t.string   "name",       null: false
@@ -18,6 +22,7 @@ ActiveRecord::Schema.define(version: 20161219163709) do
     t.string   "spotify_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_artists_on_name", using: :btree
   end
 
   create_table "festivals", force: :cascade do |t|
@@ -34,16 +39,19 @@ ActiveRecord::Schema.define(version: 20161219163709) do
     t.string   "spotify_user_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
-    t.index ["name", "year"], name: "index_festivals_on_name_and_year", unique: true
+    t.string   "short_name"
+    t.index ["name", "year"], name: "index_festivals_on_name_and_year", unique: true, using: :btree
+    t.index ["name"], name: "index_festivals_on_name", using: :btree
+    t.index ["short_name"], name: "index_festivals_on_short_name", using: :btree
   end
 
   create_table "festivals_artists", force: :cascade do |t|
     t.integer "festival_id"
     t.integer "artist_id"
     t.boolean "headliner",   default: false
-    t.index ["artist_id"], name: "index_festivals_artists_on_artist_id"
-    t.index ["festival_id", "artist_id"], name: "index_festivals_artists_on_festival_id_and_artist_id", unique: true
-    t.index ["festival_id"], name: "index_festivals_artists_on_festival_id"
+    t.index ["artist_id"], name: "index_festivals_artists_on_artist_id", using: :btree
+    t.index ["festival_id", "artist_id"], name: "index_festivals_artists_on_festival_id_and_artist_id", unique: true, using: :btree
+    t.index ["festival_id"], name: "index_festivals_artists_on_festival_id", using: :btree
   end
 
 end
