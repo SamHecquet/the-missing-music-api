@@ -48,6 +48,7 @@ group :development, :test do
 
   gem 'vcr'
   gem 'webmock'
+  gem 'brakeman', :require => false
 end
 
 group :development do

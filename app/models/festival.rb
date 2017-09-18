@@ -65,4 +65,9 @@ class Festival < ApplicationRecord
   def playlist_embed_url
     "https://embed.spotify.com/?uri=spotify:user:#{spotify_user_id}:playlists:#{spotify_playlist_id}" if playlist?
   end
+
+  #  Format : spotify:user:{user}:playlist:{playlist}
+  def playlist_uri
+    "spotify:user:#{spotify_user_id}:playlist:#{spotify_playlist_id}" if playlist?
+  end
 end
