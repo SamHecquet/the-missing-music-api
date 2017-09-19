@@ -38,7 +38,10 @@ class Festival < ApplicationRecord
 
   def self.search_by_name(festival_name)
     where('short_name % ?', festival_name)
-      .order("similarity(short_name, #{ActiveRecord::Base.connection.quote(festival_name)}) DESC, year DESC")
+      .order([
+        'similarity(short_name, ?) DESC, year DESC', 
+        ActiveRecord::Base.connection.quote(festival_name)
+      ])
       .limit(6)
   end
 
