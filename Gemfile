@@ -39,16 +39,15 @@ gem 'rspotify', '>= 1.19.0'
 gem 'pg', '~> 0.19.0'
 
 group :development, :test do
+  gem 'brakeman', require: false
   gem 'pry'
   # Use RSpec for specs
   gem 'rspec-rails', '>= 3.5.0'
 
   # Use Factory Girl for generating random test data
   gem 'factory_girl_rails'
-
   gem 'vcr'
   gem 'webmock'
-  gem 'brakeman', :require => false
 end
 
 group :development do

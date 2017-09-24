@@ -42,7 +42,6 @@ class SlugGenerator
     list_festival_name
   end
 
-
   def self.clean_raw_name(raw_name)
     # strip and downcase the string
     rewrited_name = raw_name.strip.downcase
@@ -70,7 +69,7 @@ class SlugGenerator
 
     # strip off leading/trailing dash
     rewrited_name.gsub!(/\A[-\.]+|[-\.]+\z/, '')
-    
+
     rewrited_name
   end
 end

@@ -8,7 +8,7 @@ class FestivalSerializer < ActiveModel::Serializer
   def playlist_embed_url
     object.playlist_embed_url
   end
-  
+
   def playlist_uri
     object.playlist_uri
   end
