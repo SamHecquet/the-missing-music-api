@@ -4,10 +4,11 @@ require 'open-uri'
 module Api
   module V1
     class FestivalsController < ApiController
+      before_action :set_festival_with_scrapping, only: [:create]
       before_action :set_festival, only: [:show]
 
-      # GET /festivals/:festival_name
-      def show
+      # POST /festivals/:festival_name
+      def create
         if @festival.instance_of?(Festival) && @festival.valid?
           render json: @festival
         else
@@ -22,9 +23,18 @@ module Api
         render json: search, each_serializer: FestivalSearchSerializer
       end
 
+      # GET /festivals/:festival_name
+      def show
+        if @festival.instance_of?(Festival)
+          render json: @festival
+        else
+          render json: []
+        end
+      end
+
       private
 
-      def set_festival
+      def set_festival_with_scrapping
         # Default value
         @festival = nil
 
@@ -40,6 +50,20 @@ module Api
         # 3 - Search by scrapping if Festival not found
         #     or it still doesn't have any artists
         search_festival_scrapping(list_festival_rewrited, year) if need_scrapping?
+      end
+
+      def set_festival
+        # Default value
+        @festival = nil
+
+        # 1 - Rewrite
+        list_festival_rewrited = SlugGenerator.to_slug(
+          params[:festival_name],
+          year = Date.today.strftime('%Y').to_i
+        )
+
+        # 2 - Search in database
+        search_festival_database(list_festival_rewrited, year)
       end
 
       # Search festival's data in database

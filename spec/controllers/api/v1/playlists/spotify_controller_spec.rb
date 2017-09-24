@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'rails_helper'
 
-describe Api::V1::PlaylistsController, type: 'controller' do
+describe Api::V1::Playlists::SpotifyController, type: 'controller' do
   describe '#create' do
     before(:each) do
       create(:festival_with_playlist)
